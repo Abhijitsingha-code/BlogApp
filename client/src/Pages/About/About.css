@@ -44,6 +44,7 @@
 @media (max-width: 900px) {
   .about_container {
     width: 75%;
+    height: 100vh;
   }
   .about {
     background-size: cover;
@@ -52,6 +53,7 @@
 @media (max-width: 520px) {
   .about_container {
     width: 85%;
+    height: 100vh;
   }
   .about {
     background-size: fill;

@@ -38,8 +38,8 @@ const UserPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       const res = await axios.get(`${url}/api/users`);
-      setAllUsers(res.data);
-      // setAllUsers(res.data.filter((item) => item?._id !== Admin));
+      // setAllUsers(res.data);
+      setAllUsers(res.data.filter((item) => item?._id !== Admin));
     };
     fetchUsers();
   }, []);
