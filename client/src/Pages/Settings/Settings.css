@@ -136,9 +136,16 @@
     width: 80%;
   }
   .settingsWrapper {
-    padding: 20px;
+    padding: 50px;
     padding-top: 80px;
     min-height: 100vh;
+  }
+  .settingsPP {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media (max-width: 520px) {
