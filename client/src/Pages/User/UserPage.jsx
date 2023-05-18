@@ -42,6 +42,8 @@ const UserPage = () => {
       setAllUsers(res.data.filter((item) => item?._id !== Admin));
     };
     fetchUsers();
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
