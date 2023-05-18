@@ -14,10 +14,11 @@ const Topbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const userImgRef = useRef();
   const User = useSelector(selectUser);
+  const url = import.meta.env.VITE_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const Admin = "6444d98c2b8787c1584b5ba5";
-  const PF = "http://localhost:5000/images/";
+  const Admin = import.meta.env.VITE_REACT_ADMIN;
+  const PF = `${url}/images/`;
 
   useEffect(() => {
     let handle = (e) => {

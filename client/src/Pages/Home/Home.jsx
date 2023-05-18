@@ -11,10 +11,11 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { search } = useLocation();
+  const url = import.meta.env.VITE_URL;
 
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await axios.get("http://localhost:5000/api/posts/" + search);
+      const res = await axios.get(`${url}/api/posts/` + search);
       setPosts(res.data);
       setTimeout(() => {
         setIsLoading(false);

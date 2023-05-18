@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [cats, setCats] = useState([]);
+  const url = import.meta.env.VITE_URL;
 
   useEffect(() => {
     const fetchcategory = async () => {
-      const res = await axios.get("http://localhost:5000/api/categories");
+      const res = await axios.get(`${url}/api/categories`);
       setCats(res.data);
     };
     fetchcategory();

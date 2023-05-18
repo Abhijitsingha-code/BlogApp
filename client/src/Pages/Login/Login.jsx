@@ -19,6 +19,7 @@ const Login = () => {
   const navigate = useNavigate();
   const User = useSelector(selectUser);
   const dispatch = useDispatch();
+  const url = import.meta.env.VITE_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,16 +38,13 @@ const Login = () => {
         newUser.profilePic = filename;
         console.log(newUser);
         try {
-          await axios.post("http://localhost:5000/api/upload", data);
+          await axios.post(`${url}/api/upload`, data);
         } catch (error) {
           console.log(error);
         }
       }
       try {
-        const res = await axios.post(
-          "http://localhost:5000/api/auth/register",
-          newUser
-        );
+        const res = await axios.post(`${url}/api/auth/register`, newUser);
         res.data && window.location.reload();
         toast.success("🦄 You have succesfully Resgister..", {
           position: "bottom-right",
@@ -73,7 +71,7 @@ const Login = () => {
       }
     } else {
       try {
-        const res = await axios.post("http://localhost:5000/api/auth/login", {
+        const res = await axios.post(`${url}/api/auth/login`, {
           email,
           password,
         });

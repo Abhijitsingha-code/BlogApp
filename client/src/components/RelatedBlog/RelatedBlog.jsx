@@ -9,14 +9,15 @@ const RelatedBlog = () => {
   const [posts, setPosts] = useState([]);
   const User = useSelector(selectUser);
   const { postId } = useParams();
+  const url = import.meta.env.VITE_URL;
 
-  const PF = "http://localhost:5000/images/";
+  const PF = `${url}/images/`;
   const noImage =
     "https://t3.ftcdn.net/jpg/04/34/72/82/240_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg";
 
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await axios.get(`http://localhost:5000/api/posts/`);
+      const res = await axios.get(`${url}/api/posts/`);
       // setPosts(res.data);
       setPosts(
         res.data.filter((item) => {

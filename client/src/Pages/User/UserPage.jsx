@@ -7,7 +7,8 @@ import moment from "moment";
 
 const UserPage = () => {
   const [allUsers, setAllUsers] = useState();
-  const PF = "http://localhost:5000/images/";
+  const url = import.meta.env.VITE_URL;
+  const PF = `${url}/images/`;
   const noImage =
     "https://www.shutterstock.com/image-vector/no-image-available-vector-hand-260nw-745639717.jpg";
 
@@ -35,7 +36,7 @@ const UserPage = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await axios.get("http://localhost:5000/api/users");
+      const res = await axios.get(`${url}/api/users`);
       setAllUsers(res.data);
     };
     fetchUsers();

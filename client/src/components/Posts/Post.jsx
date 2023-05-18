@@ -5,7 +5,8 @@ import moment from "moment";
 import { memo } from "react";
 
 const Post = ({ post }) => {
-  const PF = "http://localhost:5000/images/";
+  const url = import.meta.env.VITE_URL;
+  const PF = `${url}/images/`;
   const noImage =
     "https://t3.ftcdn.net/jpg/04/34/72/82/240_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg";
 

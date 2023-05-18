@@ -13,7 +13,8 @@ const Settings = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
-  const PF = "http://localhost:5000/images/";
+  const url = import.meta.env.VITE_URL;
+  const PF = `${url}/images/`;
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
@@ -31,16 +32,13 @@ const Settings = () => {
       data.append("file", file);
       updateUser.profilePic = filename;
       try {
-        await axios.post("http://localhost:5000/api/upload", data);
+        await axios.post(`${url}/api/upload`, data);
       } catch (error) {
         console.log(error);
       }
     }
     try {
-      const res = await axios.put(
-        "http://localhost:5000/api/users/" + User._id,
-        updateUser
-      );
+      const res = await axios.put(`${url}/api/users/` + User._id, updateUser);
       setSuccess(true);
       dispatch(update(res.data));
       localStorage.setItem("user", JSON.stringify(res.data));
@@ -53,7 +51,7 @@ const Settings = () => {
   const handleUserDelete = async () => {
     if (confirm("Do You want to delete your account?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/users/${User._id}`, {
+        await axios.delete(`${url}/api/users/${User._id}`, {
           data: { userId: User._id },
         });
         dispatch(logout());

@@ -13,14 +13,16 @@ const SinglePost = () => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [postUpdate, setPostUpdate] = useState(false);
-  const PF = "http://localhost:5000/images/";
+  const url = import.meta.env.VITE_URL;
+
+  const PF = `${url}/images/`;
   const User = useSelector(selectUser);
   const noImage =
     "https://t3.ftcdn.net/jpg/04/34/72/82/240_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg";
 
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await axios.get("http://localhost:5000/api/posts/" + path);
+      const res = await axios.get(`${url}/api/posts/` + path);
       setPosts(res.data);
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
@@ -29,7 +31,7 @@ const SinglePost = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${posts._id}`, {
+      await axios.delete(`${url}/api/posts/${posts._id}`, {
         data: { userId: User._id },
       });
       window.location.replace("/");
@@ -40,14 +42,11 @@ const SinglePost = () => {
 
   const handleUpdate = async () => {
     try {
-      const resUpdated = await axios.put(
-        `http://localhost:5000/api/posts/${posts._id}`,
-        {
-          userId: User._id,
-          title,
-          desc,
-        }
-      );
+      const resUpdated = await axios.put(`${url}/api/posts/${posts._id}`, {
+        userId: User._id,
+        title,
+        desc,
+      });
       setPosts(resUpdated.data);
       setPostUpdate(false);
     } catch (error) {

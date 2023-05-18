@@ -13,6 +13,7 @@ const Write = () => {
   const [file, setFile] = useState(null);
   const User = useSelector(selectUser);
   const [cats, setCats] = useState([]);
+  const url = import.meta.env.VITE_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,13 +31,13 @@ const Write = () => {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("http://localhost:5000/api/upload", data);
+        await axios.post(`${url}/api/upload`, data);
       } catch (error) {
         console.log(error);
       }
     }
     try {
-      const res = await axios.post("http://localhost:5000/api/posts", newPost);
+      const res = await axios.post(`${url}/api/posts`, newPost);
       window.location.replace("/post/" + res.data._id);
       toast.success("🦄 You have succesfully Posted a blog.", {
         position: "bottom-right",
@@ -65,7 +66,7 @@ const Write = () => {
 
   useEffect(() => {
     const fetchcategory = async () => {
-      const res = await axios.get("http://localhost:5000/api/categories");
+      const res = await axios.get(`${url}/api/categories`);
       setCats(res.data);
     };
     fetchcategory();
