@@ -36,7 +36,7 @@ const Topbar = () => {
   const logOut = () => {
     localStorage.clear();
     dispatch(logout());
-    window.location.replace("/auth");
+    navigate("/auth");
   };
 
   return (

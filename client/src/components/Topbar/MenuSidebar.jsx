@@ -1,14 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../features/userSlice";
 
 const MenuSidebar = ({ User, setShowSidebar }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const logOut = () => {
     localStorage.clear();
     dispatch(logout());
-    window.location.replace("/auth");
+    navigate("/auth");
   };
   return (
     <div className="menuSidebar">
