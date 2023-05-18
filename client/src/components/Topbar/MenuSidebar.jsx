@@ -6,6 +6,8 @@ import { logout } from "../../features/userSlice";
 const MenuSidebar = ({ User, setShowSidebar }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const Admin = import.meta.env.VITE_REACT_ADMIN;
   const logOut = () => {
     localStorage.clear();
     dispatch(logout());
@@ -31,6 +33,11 @@ const MenuSidebar = ({ User, setShowSidebar }) => {
         <i className="fa-solid fa-pen"></i>
         CreatePost
       </Link>
+      {Admin === User?._id && (
+        <Link to="/users" className="topListItems">
+          Users
+        </Link>
+      )}
       {User ? (
         <Link className="menuListItems" onClick={logOut}>
           <i className="fa-solid fa-outdent"></i>
