@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Write = () => {
   const [title, setTitle] = useState("");
@@ -14,6 +15,7 @@ const Write = () => {
   const User = useSelector(selectUser);
   const [cats, setCats] = useState([]);
   const url = import.meta.env.VITE_URL;
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ const Write = () => {
     }
     try {
       const res = await axios.post(`${url}/api/posts`, newPost);
-      window.location.replace(`/post/${res.data._id}`);
+      navigate(`/post/${res.data._id}`);
       toast.success("🦄 You have succesfully Posted a blog.", {
         position: "bottom-right",
         autoClose: 3000,
