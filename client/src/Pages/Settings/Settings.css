@@ -1,0 +1,147 @@
+.settings {
+  display: flex;
+  margin-top: 25px;
+}
+.settingsWrapper {
+  flex: 9;
+  padding: 60px;
+  padding-top: 100px;
+}
+.settingsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.settingsUpdateTitle {
+  color: rgb(68 172 153/1);
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.settingsDeleteTitle {
+  color: tomato;
+  font-size: 16px;
+  cursor: pointer;
+}
+.settingsForm {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  padding-top: 20px;
+}
+.settingsPP {
+  flex: 5;
+}
+.settingsPP > label {
+  font-size: 20px;
+  margin-top: 20px;
+  color: rgb(246 247 249/1);
+}
+.settingsPP > div {
+  display: flex;
+  flex-direction: row;
+  align-items: first baseline;
+  /* justify-content: center; */
+  margin: 10px 0px;
+}
+.settingsUpload {
+  max-width: 100px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: teal;
+  cursor: pointer;
+  font-family: "Rajdhani", sans-serif;
+  color: white;
+  font-size: 12px;
+}
+.settingsppImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.settingsppIcon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.settingsUserDetails {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+}
+.settingsUserDetails > label {
+  font-size: 20px;
+  color: rgb(246 247 249/1);
+}
+.settingsUserDetails > input {
+  margin: 5px 0px;
+  border: none;
+  padding: 13px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+  background-color: rgb(246 247 249/1);
+  color: #444;
+}
+.settingsUserDetails > input::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+.update_delete_con {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.settingsUpdate {
+  max-width: 100px;
+  padding: 5px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: teal;
+  cursor: pointer;
+  font-family: "Rajdhani", sans-serif;
+}
+.settingsUpdate:hover {
+  background-color: rgb(6, 105, 105);
+}
+
+.sidebar_con {
+  flex: 3;
+}
+
+@media (max-width: 1000px) {
+  .sidebar_con {
+    display: none;
+  }
+}
+@media (max-width: 732px) {
+  .settingsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    gap: 20px;
+  }
+  .settingsUpdate {
+    /* margin-top: 20px; */
+    align-self: self-start;
+  }
+  .settingsUserDetails {
+    width: 100%;
+  }
+  .settingsUserDetails > input {
+    width: 80%;
+  }
+  .settingsWrapper {
+    padding: 20px;
+    padding-top: 80px;
+  }
+}
+@media (max-width: 520px) {
+  .settingsUserDetails > input {
+    width: 100%;
+  }
+}

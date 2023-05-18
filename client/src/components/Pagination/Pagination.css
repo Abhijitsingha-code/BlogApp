@@ -1,0 +1,40 @@
+/* Pagination */
+.Pagination {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(35 39 47);
+}
+
+.Pagination button {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  background: white;
+  outline: none;
+  color: rgb(35 39 47);
+}
+
+.Pagination button.active {
+  font-weight: 800;
+  border-color: #6f76f7;
+  background: #6f76f7;
+  color: white;
+}
+.forward,
+.backward {
+  font-size: 25px;
+  color: rgb(35 39 47);
+}
+.backward:hover,
+.forward:hover {
+  background-color: rgb(35 39 47);
+  color: white;
+}

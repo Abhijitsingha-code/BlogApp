@@ -1,0 +1,123 @@
+.singlePost {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  min-height: 100vh;
+}
+.singlePostWrapper {
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+}
+.singlePostImg {
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
+  object-fit: initial;
+  align-self: center;
+}
+.noImg {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  align-self: center;
+}
+.singlePostTitle {
+  text-align: left;
+  margin: 10px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 28px;
+  color: white;
+}
+.singlePostEdit {
+  float: right;
+  font-size: 18px;
+}
+.singlePostIcon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.singlePostIcon:first-child {
+  color: teal;
+}
+.singlePostIcon:last-child {
+  color: tomato;
+}
+.singlePostInfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 10px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-family: "Lora", sans-serif;
+}
+.singlePostAuthor {
+  font-size: 16px;
+  color: #f6f7f9;
+  font-family: "Rajdhani", sans-serif;
+}
+.singlePostDate {
+  font-size: 16px;
+  color: #f6f7f9;
+  font-family: "Rajdhani", sans-serif;
+}
+.singlePostDesc {
+  font-size: 18px;
+  color: #f6f7f9;
+  font-family: "Josefin Sans", sans-serif;
+  line-height: 25px;
+  text-align: start !important;
+}
+.singlePostDesc::first-letter {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+.updateForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.updateFormGroup {
+  width: 100%;
+}
+.UpdateInput {
+  font-size: 20px;
+  outline: none;
+  padding: 15px;
+  padding-left: 20px;
+  width: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 5px;
+}
+.updateSubmit {
+  color: white;
+  background-color: teal;
+  padding: 10px 15px;
+  padding-bottom: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+.updateSubmit:hover {
+  background-color: rgb(1, 99, 99);
+}
+@media (max-width: 600px) {
+  .singlePostWrapper {
+    padding: 20px;
+  }
+  .UpdateInput {
+    width: 100%;
+  }
+}

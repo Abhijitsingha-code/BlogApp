@@ -1,0 +1,110 @@
+.sidebar {
+  flex: 3;
+  margin: 20px;
+  margin-top: 50px;
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+.sidebarItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(55 65 81);
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.6);
+  margin-bottom: 50px;
+}
+.sidebarTitle {
+  margin: 10px;
+  padding: 5px;
+  width: 80%;
+  border-bottom: 1px solid lightblue;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 20px;
+  color: rgb(68 172 153/1);
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+.sidebarItem > img {
+  margin-top: 10px;
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+}
+.sidebarItem > p {
+  padding: 30px;
+  line-height: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  color: rgb(246 247 249/1);
+}
+.sidebarItem > h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(246 247 249/1);
+  font-family: "Rajdhani", sans-serif;
+  margin-top: 10px;
+}
+.sidebarList {
+  list-style: none;
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+.sidebarListItem {
+  display: inline-block;
+  width: 50%;
+  margin-top: 14px;
+  cursor: pointer;
+  font-family: "Rajdhani", sans-serif;
+  color: rgb(246 247 249/1);
+
+  text-align: center;
+}
+@media (max-width: 1096px) {
+  .sidebar {
+    flex: 5;
+  }
+}
+
+@media (max-width: 735px) {
+  .sidebar {
+    margin: 5px;
+    margin-top: 50px;
+    margin-right: 20px;
+  }
+  .sidebarItem > img {
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width: 690px) {
+  .sidebar {
+    min-width: 30%;
+  }
+  .sidebarItem > img {
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+  }
+  .sidebarListItem {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 570px) {
+  .sidebar {
+    min-width: 100%;
+    margin: 0px;
+    padding: 40px;
+  }
+  .sidebar_admin {
+    display: none;
+  }
+}

@@ -1,0 +1,377 @@
+.top_bar {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(55 65 81);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 999;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.topLeft,
+.topRight {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.topLeftSection {
+  display: flex;
+  align-items: center;
+}
+.topRight section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 5%;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 999;
+  width: 180px;
+  height: 160px;
+  overflow: hidden;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+.image_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 160px;
+  height: 60px;
+  object-fit: cover;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.Profile_topImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+}
+.profile-info {
+  margin-top: 20px;
+  position: relative;
+  bottom: -70px;
+}
+.profile-info .user_name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.profile-info .user_email {
+  font-size: 14px;
+  color: #666;
+}
+.topIcon {
+  cursor: pointer;
+  margin-right: 10px;
+}
+.topIcon i {
+  font-size: 20px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 3px;
+}
+.topIcon:nth-of-type(1) {
+  color: rgb(11, 132, 237);
+}
+.topIcon:nth-of-type(2) {
+  color: rgb(220, 49, 109);
+}
+.topIcon:nth-of-type(3) {
+  color: rgb(0, 115, 178);
+}
+.topIcon:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+.topImg {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  position: relative;
+}
+.topMid {
+  flex: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.topList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "Josefin Sans", sans-serif;
+}
+/* #loginIcon {
+  display: none;
+}
+#login {
+  display: flex;
+} */
+.topIconList {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "Josefin Sans", sans-serif;
+}
+.hamTopListItems {
+  padding: 0px 20px;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  font-weight: 300;
+  text-decoration: none;
+  position: relative;
+}
+.hamTopTitle {
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #444;
+  padding: 0.5rem 1rem;
+  width: auto;
+  color: white;
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  border-radius: 10px;
+  z-index: 50;
+}
+.topListItems {
+  margin-right: 20px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+  text-decoration: none;
+  position: relative;
+  padding: 5px;
+  transition: all 0.5s;
+}
+.topListItems:hover {
+  padding-bottom: 20px;
+  transition: all 0.5s;
+}
+/* .topListItems:after,
+.topListItems:before {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0px solid transparent;
+  width: 0%;
+  height: 0%;
+  transition: all 0.5s ease;
+}
+
+.topListItems:after {
+  width: 0%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+}
+
+.topListItems:before {
+  width: 0%;
+  height: 0%;
+  right: 0;
+  bottom: 0;
+  border-bottom: 2px solid transparent;
+  border-right: 2px solid transparent;
+}
+
+.topListItems:hover::before,
+.topListItems:hover::after {
+  width: 100%;
+  height: 100%;
+  border-color: #fff;
+} */
+/* .topSearchIcon{
+    margin-left: 15px;
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+} */
+
+.headerTitle {
+  animation-name: active;
+  animation-duration: 3s;
+  -webkit-animation-name: active;
+  -webkit-animation-duration: 3s;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  line-height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.headerTitle.Sm {
+  color: teal;
+}
+.ham {
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-content: center;
+  margin: 0px 10px;
+  font-size: 22px;
+}
+.ham:hover {
+  background-color: rgb(68, 76, 90);
+  border-radius: 5px;
+}
+.dialog-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.15s ease-in-out;
+  z-index: 30;
+}
+.open_sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgb(55 65 81);
+  display: flex;
+  flex-direction: column;
+  animation: open_side 0.8s;
+}
+@keyframes open_side {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+.menuSidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 50px;
+  padding: 20px;
+  gap: 10px;
+  position: relative;
+}
+.menuListItems {
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.menuListItems i {
+  margin-right: 25px;
+  margin-bottom: 5px;
+}
+.menuListItems:hover {
+  background-color: rgb(68, 76, 90);
+}
+.hamClose {
+  position: absolute;
+  top: -40px;
+  right: 10px;
+  color: white;
+  font-size: 22px;
+}
+/* .hamClose:hover{
+    color: ;
+} */
+@-webkit-keyframes active {
+  from {
+    clip-path: circle(0% at 0 50%);
+  }
+  to {
+    clip-path: circle(150% at 0 50%);
+  }
+}
+@keyframes active {
+  from {
+    clip-path: circle(0% at 0 50%);
+  }
+  to {
+    clip-path: circle(150% at 0 50%);
+  }
+}
+
+@media (max-width: 1000px) {
+  .topMid {
+    display: none;
+  }
+  .topIconList {
+    display: flex;
+  }
+  .topLeft {
+    flex: 6;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+}
+@media (max-width: 900px) {
+  #loginIcon {
+    display: block;
+  }
+  #login {
+    display: none;
+  }
+}
+/* @media (max-width: 800px) {
+    .topLeftSection{
+        display: none;
+    }
+} */
+@media (max-width: 600px) {
+  .top_bar {
+    padding: 0px 10px;
+  }
+}
+@media (max-width: 480px) {
+  .headerTitle {
+    flex-direction: column;
+  }
+  .hamTopListItems {
+    padding: 0px 10px;
+  }
+}

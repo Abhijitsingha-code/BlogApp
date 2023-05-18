@@ -1,0 +1,154 @@
+.posts {
+  flex: 9;
+}
+.postcon {
+  margin: 20px;
+  margin-top: 50px;
+}
+.postDiv {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Josefin Sans", sans-serif;
+}
+.post {
+  background-color: rgb(55 65 81);
+  display: flex;
+  flex-direction: column;
+  width: 390px;
+  min-height: 450px;
+  margin: 0px 25px 40px 25px;
+  border-radius: 15px;
+  padding: 5px;
+  transition: all 0.5s;
+}
+.post:hover,
+.post:hover .postImg {
+  border-radius: 0px;
+  transition: border-radius 0.8s;
+}
+.postImg {
+  width: 380px;
+  height: 280px;
+  object-fit: initial;
+  border-radius: 20px;
+}
+.postInfo {
+  margin-top: 10px;
+  padding: 5px;
+}
+.postTitle .link {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(246 247 249/1);
+  font-family: "Rajdhani", sans-serif;
+}
+.postTitle .link::first-letter {
+  text-transform: uppercase;
+}
+.postInfo2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.postCats .link {
+  color: rgb(246 247 249/1);
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: "Rajdhani", sans-serif;
+}
+.postCat {
+  cursor: pointer;
+  line-height: 19px;
+}
+.postDate {
+  color: rgb(246 247 249/1);
+  font-size: 14px;
+  padding-top: 8px;
+  pointer-events: none;
+  font-family: "Rajdhani", sans-serif;
+}
+.postDesc {
+  color: rgb(246 247 249/1);
+  margin-top: 0;
+  padding: 0 5px;
+  /* padding-bottom: 10px; */
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  pointer-events: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.postDesc::first-letter {
+  text-transform: uppercase;
+}
+
+.link {
+  text-decoration: none;
+}
+.not_available {
+  color: white;
+}
+@media (max-width: 1267px) {
+  .postcon {
+    margin: 10px;
+    margin-top: 50px;
+  }
+  .post {
+    width: 355px;
+  }
+  .postImg {
+    width: 345px;
+  }
+}
+@media (max-width: 1150px) {
+  .postcon {
+    margin: 10px;
+    margin-top: 50px;
+  }
+  .post {
+    width: 335px;
+  }
+  .postImg {
+    width: 325px;
+  }
+}
+@media (max-width: 1096px) {
+  .posts {
+    flex: 7;
+  }
+  .post {
+    width: 395px;
+  }
+  .postImg {
+    width: 385px;
+  }
+}
+
+@media (max-width: 735px) {
+  .postcon {
+    margin: 5px;
+    margin-top: 50px;
+  }
+  .post {
+    width: 325px;
+  }
+  .postImg {
+    width: 315px;
+  }
+}
+@media (max-width: 570px) {
+  .post {
+    width: 100%;
+    min-height: 400px;
+  }
+  .postImg {
+    width: 100%;
+    height: 200px;
+    object-fit: fill;
+  }
+}

@@ -1,0 +1,16 @@
+.floatDiv{
+    background-color: white;
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+.float i{
+    font-size: 20px;
+    color: rgb(68 172 153/1);
+}
