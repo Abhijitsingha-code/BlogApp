@@ -40,7 +40,7 @@ const Write = () => {
     }
     try {
       const res = await axios.post(`${url}/api/posts`, newPost);
-      navigate(`/post/${res.data._id}`);
+      navigate(`/`);
       toast.success("🦄 You have succesfully Posted a blog.", {
         position: "bottom-right",
         autoClose: 3000,
