@@ -142,6 +142,20 @@
   }
 }
 @media (max-width: 570px) {
+  .postDiv {
+    justify-content: center;
+  }
+  .post {
+    width: 330px;
+    min-height: 400px;
+  }
+  .postImg {
+    width: 320px;
+    height: 250px;
+    object-fit: fill;
+  }
+}
+@media (max-width: 400px) {
   .post {
     width: 100%;
     min-height: 400px;

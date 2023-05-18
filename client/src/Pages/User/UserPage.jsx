@@ -8,6 +8,7 @@ import moment from "moment";
 const UserPage = () => {
   const [allUsers, setAllUsers] = useState();
   const url = import.meta.env.VITE_URL;
+  const Admin = import.meta.env.VITE_REACT_ADMIN;
   const PF = `${url}/images/`;
   const noImage =
     "https://www.shutterstock.com/image-vector/no-image-available-vector-hand-260nw-745639717.jpg";
@@ -38,13 +39,13 @@ const UserPage = () => {
     const fetchUsers = async () => {
       const res = await axios.get(`${url}/api/users`);
       setAllUsers(res.data);
+      // setAllUsers(res.data.filter((item) => item?._id !== Admin));
     };
     fetchUsers();
   }, []);
 
   return (
     <div className="userpage">
-      <ToastContainer />
       {allUsers?.map((user, ind) => (
         <div className="user_container" key={ind}>
           <img src={user.profilePic ? PF + user.profilePic : noImage} alt="" />
@@ -57,6 +58,7 @@ const UserPage = () => {
           {/* <button onClick={handleDelete(user._id)}>Remove user</button> */}
         </div>
       ))}
+      {/* <ToastContainer style={{ width: "0px", height: "0px" }} /> */}
     </div>
   );
 };

@@ -8,6 +8,10 @@ const MenuSidebar = ({ User, setShowSidebar }) => {
   const navigate = useNavigate();
 
   const Admin = import.meta.env.VITE_REACT_ADMIN;
+
+  const hide = () => {
+    setShowSidebar(false);
+  };
   const logOut = () => {
     localStorage.clear();
     dispatch(logout());
@@ -16,35 +20,39 @@ const MenuSidebar = ({ User, setShowSidebar }) => {
   return (
     <div className="menuSidebar">
       <div className="hamClose">
-        <i
-          className="fa-solid fa-circle-xmark"
-          onClick={() => setShowSidebar(false)}
-        ></i>
+        <i className="fa-solid fa-circle-xmark" onClick={() => hide()}></i>
       </div>
-      <Link to="/" className="menuListItems">
+      <Link to="/" className="menuListItems" onClick={() => hide()}>
         <i className="fa-solid fa-house"></i>
         Home
       </Link>
-      <Link to="/about" className="menuListItems">
+      <Link to="/about" className="menuListItems" onClick={() => hide()}>
         <i className="fa-solid fa-address-card"></i>
         About
       </Link>
-      <Link to="/write" className="menuListItems">
+      <Link to="/write" className="menuListItems" onClick={() => hide()}>
         <i className="fa-solid fa-pen"></i>
         CreatePost
       </Link>
       {Admin === User?._id && (
-        <Link to="/users" className="topListItems">
+        <Link to="/users" className="menuListItems" onClick={() => hide()}>
+          <i class="fa-sharp fa-solid fa-user"></i>
           Users
         </Link>
       )}
       {User ? (
-        <Link className="menuListItems" onClick={logOut}>
+        <Link
+          className="menuListItems"
+          onClick={() => {
+            hide();
+            logOut();
+          }}
+        >
           <i className="fa-solid fa-outdent"></i>
           Logout
         </Link>
       ) : (
-        <Link to="/auth" className="menuListItems">
+        <Link to="/auth" className="menuListItems" onClick={() => hide()}>
           <i className="fa-solid fa-indent"></i>
           Login/Resgister
         </Link>
