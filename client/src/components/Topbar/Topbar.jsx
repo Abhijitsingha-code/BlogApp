@@ -125,8 +125,8 @@ const Topbar = () => {
                       />
                     </NavLink>
                     <div className="profile-info">
-                      <p className="user_name">Abhijit singha</p>
-                      <p className="user_email">📧 abhijit@mail.com</p>
+                      <p className="user_name">{User.username}</p>
+                      <p className="user_email">📧 {User.email}</p>
                     </div>
                   </div>
                 </div>
