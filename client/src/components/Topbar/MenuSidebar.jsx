@@ -15,7 +15,7 @@ const MenuSidebar = ({ User, setShowSidebar }) => {
   const logOut = () => {
     localStorage.clear();
     dispatch(logout());
-    navigate("/auth");
+    window.location.replace("/auth/login");
   };
   return (
     <div className="menuSidebar">
@@ -36,7 +36,7 @@ const MenuSidebar = ({ User, setShowSidebar }) => {
       </Link>
       {Admin === User?._id && (
         <Link to="/users" className="menuListItems" onClick={() => hide()}>
-          <i class="fa-sharp fa-solid fa-user"></i>
+          <i className="fa-sharp fa-solid fa-user"></i>
           Users
         </Link>
       )}
@@ -52,7 +52,7 @@ const MenuSidebar = ({ User, setShowSidebar }) => {
           Logout
         </Link>
       ) : (
-        <Link to="/auth" className="menuListItems" onClick={() => hide()}>
+        <Link to="/auth/login" className="menuListItems" onClick={() => hide()}>
           <i className="fa-solid fa-indent"></i>
           Login/Resgister
         </Link>

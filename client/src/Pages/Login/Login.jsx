@@ -9,15 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser, login, logout } from "../../features/userSlice.js";
 
 const Login = () => {
-  const [isResgister, setIsResgister] = useState(false);
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [file, setFile] = useState(null);
   const [error, setError] = useState(false);
   const [passwordType, setPasswordType] = useState("password");
+
+  const [username, setUsername] = useState("");
+
   const navigate = useNavigate();
-  const User = useSelector(selectUser);
   const dispatch = useDispatch();
   const url = import.meta.env.VITE_URL;
 
@@ -29,24 +28,16 @@ const Login = () => {
       email: email,
       password: password,
     };
-    if (isResgister) {
-      if (file) {
-        const data = new FormData();
-        const filename = Date.now() + file.name;
-        data.append("name", filename);
-        data.append("file", file);
-        newUser.profilePic = filename;
-        console.log(newUser);
-        try {
-          await axios.post(`${url}/api/upload`, data);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-      try {
-        const res = await axios.post(`${url}/api/auth/register`, newUser);
-        res.data && window.location.reload();
-        toast.success("🦄 You have succesfully Resgister..", {
+    try {
+      const res = await axios.post(`${url}/api/auth/login`, {
+        email,
+        password,
+      });
+      dispatch(login(res.data));
+      localStorage.setItem("user", JSON.stringify(res.data));
+      toast.success(
+        "🦄 You have succesfully Login..",
+        {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -55,56 +46,22 @@ const Login = () => {
           draggable: true,
           progress: undefined,
           theme: "colored",
-        });
-      } catch (error) {
-        // setError(true);
-        toast.error("There is error", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-      }
-    } else {
-      try {
-        const res = await axios.post(`${url}/api/auth/login`, {
-          email,
-          password,
-        });
-        dispatch(login(res.data));
-        localStorage.setItem("user", JSON.stringify(res.data));
-        toast.success(
-          "🦄 You have succesfully Login..",
-          {
-            position: "bottom-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          },
-          { delay: 1000 }
-        );
-        res.data && navigate("/");
-      } catch (error) {
-        // setError(true);
-        toast.error("There is error", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-      }
+        },
+        { delay: 1000 }
+      );
+      res.data && navigate("/");
+    } catch (error) {
+      // setError(true);
+      toast.error("There is error", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 
@@ -119,32 +76,8 @@ const Login = () => {
   return (
     <div className="login">
       <ToastContainer />
-      <span className="loginTitle">{isResgister ? "Resgister" : "Login"}</span>
+      <span className="loginTitle">Login</span>
       <form className="loginForm" onSubmit={handleSubmit}>
-        {isResgister && (
-          <>
-            <div>
-              <label htmlFor="fileInput">
-                <img src={changePP} alt="pp" className="loginPP" />
-              </label>
-              <input
-                type="file"
-                id="fileInput"
-                style={{ display: "none" }}
-                onChange={(e) => setFile(e.target.files[0])}
-              />
-            </div>
-            <label htmlFor="name">Username</label>
-            <input
-              className="input"
-              type="text"
-              id="name"
-              placeholder="Username.."
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </>
-        )}
         <label htmlFor="email">Email</label>
         <input
           className="input"
@@ -161,6 +94,7 @@ const Login = () => {
             id="password"
             placeholder="Enter password.."
             value={password}
+            autoComplete="off"
             onChange={(e) => setPassword(e.target.value)}
           />
           <div onClick={togglePassword}>
@@ -171,21 +105,18 @@ const Login = () => {
             )}
           </div>
         </div>
-        <button className="loginBtn">
-          {isResgister ? "Resgister" : "Login"}
-        </button>
+        <button className="loginBtn">Login</button>
         {error && <p style={{ color: "tomato" }}>Error</p>}
       </form>
       <button
         className="registerBtn"
         onClick={() => {
-          setIsResgister(!isResgister);
+          navigate("/auth/register");
         }}
       >
-        {isResgister ? "Login" : "Resgister"}
+        Resgister
       </button>
     </div>
   );
 };
-
 export default Login;

@@ -1,10 +1,10 @@
-.home{
-    margin-top: 50px;
-    display: flex;
+.home {
+  margin-top: 50px;
+  display: flex;
 }
 @media (max-width: 570px) {
-    .home{
-        display: flex;
-        flex-direction: column;
-    }
+  .home {
+    display: flex;
+    flex-direction: column;
+  }
 }

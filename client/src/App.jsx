@@ -12,6 +12,7 @@ import About from "./Pages/About/About";
 import UserPage from "./Pages/User/UserPage";
 import Float from "./components/Float/Float";
 import "./app.css";
+import Register from "./Pages/Login/Register";
 
 function App() {
   const User = useSelector(selectUser);
@@ -38,7 +39,14 @@ function App() {
           path="/settings"
           element={User !== null ? <Settings /> : <Login />}
         />
-        <Route path="/auth" element={User !== null ? <Home /> : <Login />} />
+        <Route
+          path="/auth/login"
+          element={User !== null ? <Home /> : <Login />}
+        />
+        <Route
+          path="/auth/register"
+          element={User !== null ? <Home /> : <Register />}
+        />
         {User ? (
           Admin === User._id && <Route path="/users" element={<UserPage />} />
         ) : (

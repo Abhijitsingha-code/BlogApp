@@ -5,6 +5,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import moment from "moment";
+import Comment from "../comment/Comment";
 
 const SinglePost = () => {
   const location = useLocation();
@@ -17,6 +18,8 @@ const SinglePost = () => {
 
   const PF = `${url}/images/`;
   const User = useSelector(selectUser);
+  const Admin = import.meta.env.VITE_REACT_ADMIN;
+
   const noImage =
     "https://t3.ftcdn.net/jpg/04/34/72/82/240_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg";
 
@@ -67,7 +70,7 @@ const SinglePost = () => {
           <>
             <h3 className="singlePostTitle">
               {posts.title}
-              {posts.username === User?.username && (
+              {posts?.userId === User?._id || User?._id === Admin ? (
                 <div className="singlePostEdit">
                   <i
                     className="singlePostIcon fa-solid fa-pen-to-square"
@@ -78,6 +81,8 @@ const SinglePost = () => {
                     onClick={handleDelete}
                   ></i>
                 </div>
+              ) : (
+                <></>
               )}
             </h3>
             <div className="singlePostInfo">
@@ -125,6 +130,7 @@ const SinglePost = () => {
           </>
         )}
       </div>
+      <Comment />
     </div>
   );
 };

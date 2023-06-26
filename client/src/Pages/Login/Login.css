@@ -1,6 +1,7 @@
 .login {
   min-height: 100vh;
   padding: 60px;
+  /* padding-top: 0px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,18 +33,31 @@
   width: 300px;
   height: auto;
 }
-.loginForm > label {
-  margin: 5px 0;
+.loginForm > label,
+.label {
+  /* margin: 0px 0; */
+  margin-top: 15px;
   align-self: center;
+  text-align: center;
   font-size: 16px;
+  color: #222;
+}
+.resend_otp {
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  text-align: right;
+}
+.resend_otp:hover {
+  color: #024d1b;
 }
 .input {
   background-color: white;
-  color: #222;
+  color: #444;
   font-size: 16px;
-  padding: 15px;
+  padding: 0px 15px;
+  height: 45px;
   border-radius: 5px;
-  margin-bottom: 20px;
   border: none;
   outline: none;
   box-shadow: 5px 3px 10px rgba(185, 0, 255, 0.3);
@@ -67,8 +81,9 @@
 }
 .pass_word input {
   background-color: white;
-  color: #222;
+  color: #444;
   font-size: 14px;
+  height: 20px;
   border: none;
   outline: none;
   font-family: "Josefin Sans", sans-serif;
@@ -86,10 +101,11 @@
   outline: none;
   align-self: center;
   padding: 5px 15px;
+  height: 30px;
   border-radius: 5px;
   font-size: 14px;
   font-family: "Josefin Sans", sans-serif;
-  margin-top: 10px;
+  margin-top: 25px;
   cursor: pointer;
 }
 .loginBtn:hover {
@@ -116,11 +132,50 @@
   background-color: rgba(0, 128, 128, 1);
 }
 .loginPP {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 20px;
   object-fit: cover;
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 0px;
+}
+@keyframes spin {
+  100% {
+    rotate: 1turn;
+  }
+}
+
+.spinner {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  translate: 0 -50%;
+  width: 20px;
+  height: 20px;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 50%;
+  border: 3px solid rgb(255 255 255 / 10%);
+  border-top-color: #024d1b;
+  animation: spin 0.6s infinite linear;
+  transition: 0.3s;
+}
+
+.spinner.loading {
+  visibility: visible;
+  opacity: 1;
+}
+.validation {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  height: 0;
+  overflow: hidden;
+  color: tomato;
+  transition: 0.3s;
+}
+
+.validation.invalid {
+  height: 30px;
 }

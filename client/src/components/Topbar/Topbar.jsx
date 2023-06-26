@@ -35,8 +35,8 @@ const Topbar = () => {
 
   const logOut = () => {
     localStorage.clear();
+    window.location.replace("/auth/login");
     dispatch(logout());
-    navigate("/auth");
   };
 
   return (
@@ -135,7 +135,7 @@ const Topbar = () => {
           ) : (
             <>
               <ul className="topList" id="login">
-                <Link to="/auth" className="topListItems">
+                <Link to="/auth/login" className="topListItems">
                   Login/Resgister
                 </Link>
               </ul>
